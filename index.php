@@ -5,8 +5,8 @@ $courses = [
     ['code'=>'WEB-01','name'=>'HTML & CSS Dasar','fee'=>350000,'quota'=>30,'registered'=>12,'date'=>'2026-09-10'],
     ['code'=>'PHP-01','name'=>'PHP Dasar','fee'=>400000,'quota'=>25,'registered'=>10,'date'=>'2026-09-12'],
     ['code'=>'PHP-02','name'=>'PHP Lanjut & MySQL','fee'=>500000,'quota'=>20,'registered'=>5,'date'=>'2026-09-15'],
-    ['code'=>'LAR-01','name'=>'Laravel Framework','fee'=>750000,'quota'=>25,'registered'=>25,'date'=>'2026-09-18'], // INI YANG PENUH
-    ['code'=>'DB-01','name'=>'Database MySQL','fee'=>300000,'quota'=>20,'registered'=>0,'date'=>'2026-09-20'], // INI YANG KOSONG
+    ['code'=>'LAR-01','name'=>'Laravel Framework','fee'=>750000,'quota'=>25,'registered'=>25,'date'=>'2026-09-18'],
+    ['code'=>'DB-01','name'=>'Database MySQL','fee'=>300000,'quota'=>20,'registered'=>0,'date'=>'2026-09-20'],
     ['code'=>'UI-01','name'=>'UI/UX Fundamental','fee'=>450000,'quota'=>30,'registered'=>18,'date'=>'2026-09-22'],
 ];
 $serverTime = date('Y-m-d H:i:s');
@@ -16,10 +16,10 @@ $serverTime = date('Y-m-d H:i:s');
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KursusKu Prototype</title>
+<title>KursusKu - Dyna Khairulnisa</title>
 </head>
 <body>
-<header><h1>KursusKu</h1><p>Waktu server: <?= $serverTime ?></p></header>
+<header><h1>KursusKu</h1><p>Waktu server: <?= $serverTime ?> | by Dyna Khairulnisa</p></header>
 
 <main>
 <section>
@@ -60,10 +60,12 @@ $serverTime = date('Y-m-d H:i:s');
 
 <section>
 <h2>Kontak</h2>
-<p>Email: info@kursusku.id</p>
+<p>Email: dynakhairulnysa@student.ac.id</p>
+<p>GitHub: dynakhairulnysa-star</p>
+<p>Lokasi: Padangpanjang, Sumatera Barat</p>
 </section>
 </main>
 
-<footer><p>&copy; 2026 KursusKu</p></footer>
+<footer><p>&copy; 2026 KursusKu - Dyna Khairulnisa (dynakhairulnysa-star)</p></footer>
 </body>
 </html>
