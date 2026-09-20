@@ -16,10 +16,10 @@ $serverTime = date('Y-m-d H:i:s');
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KursusKu - Dyna Khairulnisa</title>
+<title>KursusKu - Dynna Khairulnysa</title>
 </head>
 <body>
-<header><h1>KursusKu</h1><p>Waktu server: <?= $serverTime ?> | by Dyna Khairulnisa</p></header>
+<header><h1>KursusKu</h1><p>Waktu server: <?= $serverTime ?> | by Dynna Khairulnysa</p></header>
 
 <main>
 <section>
@@ -66,6 +66,7 @@ $serverTime = date('Y-m-d H:i:s');
 </section>
 </main>
 
-<footer><p>&copy; 2026 KursusKu - Dyna Khairulnisa (dynakhairulnysa-star)</p></footer>
+<footer><p>&copy; 2026 KursusKu - Dynna Khairulnysa (dynakhairulnysa-star)</p></footer>
 </body>
 </html>
+
