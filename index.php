@@ -2,71 +2,236 @@
 require_once __DIR__ . '/helpers.php';
 
 $courses = [
-    ['code'=>'WEB-01','name'=>'HTML & CSS Dasar','fee'=>350000,'quota'=>30,'registered'=>12,'date'=>'2026-09-10'],
-    ['code'=>'PHP-01','name'=>'PHP Dasar','fee'=>400000,'quota'=>25,'registered'=>10,'date'=>'2026-09-12'],
-    ['code'=>'PHP-02','name'=>'PHP Lanjut & MySQL','fee'=>500000,'quota'=>20,'registered'=>5,'date'=>'2026-09-15'],
-    ['code'=>'LAR-01','name'=>'Laravel Framework','fee'=>750000,'quota'=>25,'registered'=>25,'date'=>'2026-09-18'],
-    ['code'=>'DB-01','name'=>'Database MySQL','fee'=>300000,'quota'=>20,'registered'=>0,'date'=>'2026-09-20'],
-    ['code'=>'UI-01','name'=>'UI/UX Fundamental','fee'=>450000,'quota'=>30,'registered'=>18,'date'=>'2026-09-22'],
+    ['code' => 'WEB-01', 'name' => 'Web Dasar', 'fee' => 200000, 'quota' => 30, 'registered' => 12, 'start_date' => '2026-09-21'],
+    ['code' => 'PHP-01', 'name' => 'PHP Dasar', 'fee' => 250000, 'quota' => 30, 'registered' => 18, 'start_date' => '2026-09-22'],
+    ['code' => 'PHP-02', 'name' => 'PHP Lanjutan', 'fee' => 300000, 'quota' => 25, 'registered' => 24, 'start_date' => '2026-09-24'],
+    ['code' => 'LAR-01', 'name' => 'Laravel Fundamental', 'fee' => 350000, 'quota' => 25, 'registered' => 25, 'start_date' => '2026-09-28'],
+    ['code' => 'DB-01', 'name' => 'MySQL Dasar', 'fee' => 275000, 'quota' => 20, 'registered' => 0, 'start_date' => '2026-10-01'],
+    ['code' => 'UI-01', 'name' => 'UI Web Dasar', 'fee' => 225000, 'quota' => 35, 'registered' => 9, 'start_date' => '2026-10-03'],
 ];
-$serverTime = date('Y-m-d H:i:s');
+
+$siteName = "KursusKu";
+$tagline = "Belajar Teknologi, Bangun Masa Depan";
+$tahun = date("Y");
+
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KursusKu - Dynna Khairulnysa</title>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title><?php echo $siteName; ?></title>
+
+  <link
+    rel="stylesheet"
+    href="assets/css/style.css">
 </head>
+
 <body>
-<header><h1>KursusKu</h1><p>Waktu server: <?= $serverTime ?> | by Dynna Khairulnysa</p></header>
+  <header class="header">
 
-<main>
-<section>
-<h2>Keunggulan</h2>
-<article><h3>Mentor Berpengalaman</h3><p>Belajar dari praktisi.</p></article>
-<article><h3>Materi Update</h3><p>Sesuai industri 2026.</p></article>
-<article><h3>Sertifikat</h3><p>Dapat sertifikat resmi.</p></article>
-</section>
+    <div class="container">
 
-<section>
-<h2>Katalog Kursus (6 Kursus)</h2>
-<?php foreach($courses as $c): ?>
-<div style="border:1px solid #ccc; margin:10px; padding:10px;">
-<h3><?= $c['code'] ?> - <?= $c['name'] ?></h3>
-<p>Biaya: <?= rupiah($c['fee']) ?></p>
-<p>Status: <b><?= statusKursus($c['quota'], $c['registered']) ?></b></p>
-<p>Sisa Kursi: <?= sisaKursi($c['quota'], $c['registered']) ?> dari <?= $c['quota'] ?></p>
-<p>Tanggal: <?= formatTanggal($c['date']) ?></p>
-</div>
-<?php endforeach; ?>
-</section>
+      <h1>
+        <?php echo $siteName; ?>
+      </h1>
 
-<section>
-<h2>Alur Pendaftaran</h2>
-<ol>
-<li>Pilih kursus</li>
-<li>Isi form</li>
-<li>Bayar biaya</li>
-<li>Konfirmasi</li>
-</ol>
-</section>
+      <p>
+        <?php echo $tagline; ?>
+      </p>
 
-<section>
-<h2>Media</h2>
-<img src="assets/images/hero-kursus.jpg" alt="Hero Kursus" width="300">
-<video width="300" controls><source src="assets/video/intro-kursus.mp4" type="video/mp4"></video>
-</section>
+    </div>
 
-<section>
-<h2>Kontak</h2>
-<p>Email: dynakhairulnysa@student.ac.id</p>
-<p>GitHub: dynakhairulnysa-star</p>
-<p>Lokasi: Padangpanjang, Sumatera Barat</p>
-</section>
-</main>
+  </header>
 
-<footer><p>&copy; 2026 KursusKu - Dynna Khairulnysa (dynakhairulnysa-star)</p></footer>
+  <nav class="navbar">
+
+    <div class="container">
+
+      <a href="#beranda">Beranda</a>
+
+      <a href="#kursus">Kursus</a>
+
+      <a href="#tentang">Tentang</a>
+
+      <a href="#kontak">Kontak</a>
+
+    </div>
+
+  </nav>
+
+  <main>
+    <section id="beranda" class="hero">
+
+      <div class="container">
+
+        <div class="hero-content">
+
+          <div>
+
+            <h2>
+              Selamat Datang di
+              <?php echo $siteName; ?>
+            </h2>
+
+            <p>
+              Platform belajar teknologi untuk
+              mahasiswa yang ingin meningkatkan
+              kemampuan pemrograman web.
+            </p>
+
+            <a
+              href="#kursus"
+              class="button">
+              Lihat Kursus
+            </a>
+
+            <a
+              href="fee-calculator.php"
+              class="button">Lihat Estimasi Biaya
+            </a>
+
+          </div>
+
+          <div>
+
+            <img
+              src="assets/img/image1.png"
+              alt="Mahasiswa sedang belajar pemrograman web"
+              class="hero-image">
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ===== SECTION KATALOG — DIGANTI DENGAN TABEL DINAMIS ===== -->
+    <section id="kursus" class="section">
+
+      <div class="container">
+
+        <h2>Katalog Kursus</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Kode</th>
+              <th>Nama</th>
+              <th>Biaya</th>
+              <th>Mulai</th>
+              <th>Sisa</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($courses as $course): ?>
+              <?php
+              $status = statusKursus($course['quota'], $course['registered']);
+              $statusClass = $status === 'Penuh' ? 'badge-full' : 'badge-available';
+              ?>
+              <tr>
+                <td><?= htmlspecialchars($course['code']) ?></td>
+                <td><?= htmlspecialchars(trim($course['name'])) ?></td>
+                <td><?= rupiah($course['fee']) ?></td>
+                <td><?= formatTanggal($course['start_date']) ?></td>
+                <td><?= sisaKursi($course['quota'], $course['registered']) ?></td>
+                <td><span class="<?= $statusClass ?>"><?= $status ?></span></td>
+              </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+
+      </div>
+
+    </section>
+    <!-- ===== AKHIR SECTION KATALOG ===== -->
+
+    <section id="tentang" class="section section-light">
+
+      <div class="container">
+
+        <h2>Tentang KursusKu</h2>
+
+        <p>
+          KursusKu merupakan prototype website
+          pembelajaran yang dikembangkan dalam
+          mata kuliah Pemrograman Web III.
+        </p>
+
+        <p>
+          Pada semester ini mahasiswa akan belajar
+          PHP, MySQL dan framework Laravel.
+        </p>
+
+        <a
+          href="https://laravel.com"
+          target="_blank"
+          rel="noopener">
+          Pelajari Laravel
+        </a>
+
+      </div>
+
+    </section>
+    <section class="section">
+
+      <div class="container">
+
+        <h2>Video Pembelajaran</h2>
+
+        <div class="video-placeholder">
+
+          <iframe width="342" height="607" src="https://www.youtube.com/embed/nQinn48Bk2g" title="Kenapa Laravel Masih Banyak Yang Pake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+
+      </div>
+
+    </section>
+    <section id="kontak" class="section section-light">
+
+      <div class="container">
+
+        <h2>Kontak</h2>
+
+        <p>
+          Informasi lebih lanjut mengenai
+          program KursusKu dapat diperoleh
+          melalui halaman ini.
+        </p>
+
+      </div>
+
+    </section>
+  </main>
+
+  <footer class="footer">
+
+    <div class="container">
+
+      <p>
+
+        &copy;
+        <?php echo $tahun; ?>
+
+        <?php echo $siteName; ?>.
+
+        Pemrograman Web III.
+
+      </p>
+
+    </div>
+
+  </footer>
 </body>
-</html>
 
+</html>

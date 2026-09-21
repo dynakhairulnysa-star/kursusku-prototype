@@ -1,6 +1,4 @@
 <?php
-date_default_timezone_set('Asia/Jakarta');
-echo "Waktu server: " . date('d-m-Y H:i:s') . " WIB";
+$serverTime = date('Y-m-d H:i:s');
+echo 'Waktu server: ' . $serverTime;
 ?>
-<br><br>
-<a href="index.php">Kembali</a>
