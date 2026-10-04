@@ -1,9 +1,9 @@
 <?php
 $history = [
-    ['nama' => 'Dewi Lestari',    'kursus' => 'PHP Dasar',           'total' => 385000],
-    ['nama' => 'Eko Prasetyo',    'kursus' => 'Laravel Fundamental', 'total' => 625000],
-    ['nama' => 'Fitri Handayani', 'kursus' => 'Web Dasar',           'total' => 495000],
-    ['nama' => 'Gilang Ramadhan', 'kursus' => 'PHP Dasar',           'total' => 540000],
+    ['nama' => 'Dinakin',   'kursus' => 'PHP Dasar',           'total' => 360000],
+    ['nama' => 'Saraswati', 'kursus' => 'Web Dasar',           'total' => 595000],
+    ['nama' => 'Syerin',    'kursus' => 'Laravel Fundamental', 'total' => 575000],
+    ['nama' => 'Saputra',   'kursus' => 'Laravel Fundamental', 'total' => 1725000],
 ];
 
 function rupiah($n) {

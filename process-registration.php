@@ -84,6 +84,7 @@ function rupiah($n) {
 <?php else: ?>
   <p class="eyebrow">Milestone 6 · Ringkasan</p>
   <h1>Pendaftaran Berhasil Diproses</h1>
+  <div class="result-wrapper">
 
   <section class="summary-card">
     <div class="info-grid">
@@ -159,6 +160,7 @@ function rupiah($n) {
     <a class="btn-link" href="index.php">Beranda</a>
   </div>
   <?php endif; ?>
+  </div>
 </main>
 <footer class="site-footer">
   <div class="container">
