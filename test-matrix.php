@@ -8,21 +8,41 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="index.php">KursusKu</a>
-    <nav>
-      <a href="index.php">Beranda</a>
-      <a href="registration.php">Daftar</a>
-    </nav>
+  <div class="container top-bar">
+    <div class="brand-wrap">
+      <div class="logo-badge">K</div>
+      <div class="brand-text">
+        <h1>KursusKu</h1>
+        <p>Pemrograman Web III</p>
+      </div>
+    </div>
+    <span class="milestone-badge">Milestone 6</span>
+  </div>
+
+  <div class="nav-bar">
+    <div class="container">
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="index.php">Beranda</a>
+        <a href="index.php#kursus">Katalog</a>
+        <a href="index.php#tentang">Keunggulan</a>
+        <a href="registration.php">Cara Daftar</a>
+        <a href="index.php#kontak">Kontak</a>
+        <a href="test-matrix.php">Form P5</a>
+        <a href="registration.php">Daftar P6</a>
+        <a href="history.php">History</a>
+      </nav>
+      <a class="btn-estimasi" href="fee-calculator.php">Estimasi Biaya</a>
+    </div>
   </div>
 </header>
+
 <main class="container">
   <section class="page-intro">
     <p class="eyebrow">Evidence Week 06</p>
     <h1>Test Matrix Pertemuan 6</h1>
   </section>
   <section class="summary-card">
-    <table>
+    <table class="fee-table">
       <thead>
         <tr><th>No</th><th>Skenario</th><th>Actual</th><th>Expected</th><th>Status</th></tr>
       </thead>
@@ -43,5 +63,11 @@
     </table>
   </section>
 </main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <?= date('Y') ?> KursusKu</p>
+  </div>
+</footer>
 </body>
 </html>

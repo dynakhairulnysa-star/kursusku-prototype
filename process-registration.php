@@ -60,17 +60,36 @@ function rupiah($n) {
 </head>
 <body>
 <header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="index.php">KursusKu</a>
-    <nav aria-label="Navigasi utama">
-      <a href="index.php">Beranda</a>
-      <a href="index.php#katalog">Katalog</a>
-      <a href="registration.php">Daftar</a>
-    </nav>
+  <div class="container top-bar">
+    <div class="brand-wrap">
+      <div class="logo-badge">K</div>
+      <div class="brand-text">
+        <h1>KursusKu</h1>
+        <p>Pemrograman Web III</p>
+      </div>
+    </div>
+    <span class="milestone-badge">Milestone 6</span>
+  </div>
+
+  <div class="nav-bar">
+    <div class="container">
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="index.php">Beranda</a>
+        <a href="index.php#kursus">Katalog</a>
+        <a href="index.php#tentang">Keunggulan</a>
+        <a href="registration.php">Cara Daftar</a>
+        <a href="index.php#kontak">Kontak</a>
+        <a href="test-matrix.php">Form P5</a>
+        <a href="registration.php">Daftar P6</a>
+        <a href="history.php">History</a>
+      </nav>
+      <a class="btn-estimasi" href="fee-calculator.php">Estimasi Biaya</a>
+    </div>
   </div>
 </header>
+
 <main class="container result-page">
-  <?php if ($errors): ?>
+<?php if ($errors): ?>
   <section class="alert-error">
     <h1>Pendaftaran Gagal Diproses</h1>
     <p>Periksa kembali data berikut:</p>
@@ -84,84 +103,87 @@ function rupiah($n) {
 <?php else: ?>
   <p class="eyebrow">Milestone 6 · Ringkasan</p>
   <h1>Pendaftaran Berhasil Diproses</h1>
+
   <div class="result-wrapper">
 
-  <section class="summary-card">
-    <div class="info-grid">
-      <div class="info-item">
-        <span class="info-label">Nama:</span>
-        <span class="info-value"><?= e($name) ?></span>
+    <section class="summary-card">
+      <div class="info-grid">
+        <div class="info-item">
+          <span class="info-label">Nama:</span>
+          <span class="info-value"><?= e($name) ?></span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Email:</span>
+          <span class="info-value"><?= e($email) ?></span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Kursus:</span>
+          <span class="info-value"><?= e($courseLabel) ?></span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Tipe peserta:</span>
+          <span class="info-value"><?= e($participantMap[$participantType] ?? $participantType) ?></span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Metode:</span>
+          <span class="info-value"><?= e($methodMap[$learningMethod] ?? $learningMethod) ?></span>
+        </div>
+        <div class="info-item">
+          <span class="info-label">Jumlah paket:</span>
+          <span class="info-value"><?= e($packageCount) ?></span>
+        </div>
       </div>
-      <div class="info-item">
-        <span class="info-label">Email:</span>
-        <span class="info-value"><?= e($email) ?></span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Kursus:</span>
-        <span class="info-value"><?= e($courseLabel) ?></span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Tipe peserta:</span>
-        <span class="info-value"><?= e($participantMap[$participantType] ?? $participantType) ?></span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Metode:</span>
-        <span class="info-value"><?= e($methodMap[$learningMethod] ?? $learningMethod) ?></span>
-      </div>
-      <div class="info-item">
-        <span class="info-label">Jumlah paket:</span>
-        <span class="info-value"><?= e($packageCount) ?></span>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="summary-card">
-    <h2>Rincian Biaya</h2>
-    <dl class="summary-list">
-      <dt>Biaya satuan</dt><dd><?= rupiah($fee) ?></dd>
-      <dt>Subtotal</dt><dd><?= rupiah($subtotal) ?></dd>
-      <dt>Diskon <?= e($discountPercent) ?>%</dt><dd>-<?= rupiah($discount) ?></dd>
-      <dt><strong>TOTAL AKHIR</strong></dt><dd><strong><?= rupiah($total) ?></strong></dd>
-    </dl>
-  </section>
+    <section class="summary-card">
+      <h2>Rincian Biaya</h2>
+      <dl class="summary-list">
+        <dt>Biaya satuan</dt><dd><?= rupiah($fee) ?></dd>
+        <dt>Subtotal</dt><dd><?= rupiah($subtotal) ?></dd>
+        <dt>Diskon <?= e($discountPercent) ?>%</dt><dd>-<?= rupiah($discount) ?></dd>
+        <dt><strong>TOTAL AKHIR</strong></dt><dd><strong><?= rupiah($total) ?></strong></dd>
+      </dl>
+    </section>
 
-  <section class="summary-card">
-    <h2>Minat</h2>
-    <p>
-      <?php if (empty($interests)): ?>
-        <span style="background:#eef8f5; padding:.75rem 1rem; display:block; border-radius:8px; color:#475569;">
-          Belum memilih minat.
-        </span>
-      <?php else: ?>
-        <?php foreach ($interests as $i): ?>
-          <span class="tag"><?= e($interestMap[$i] ?? $i) ?></span>
-        <?php endforeach; ?>
-      <?php endif; ?>
-    </p>
-  </section>
+    <section class="summary-card">
+      <h2>Minat</h2>
+      <p>
+        <?php if (empty($interests)): ?>
+          <span style="background:#eef8f5; padding:.75rem 1rem; display:block; border-radius:8px; color:#475569;">
+            Belum memilih minat.
+          </span>
+        <?php else: ?>
+          <?php foreach ($interests as $i): ?>
+            <span class="tag"><?= e($interestMap[$i] ?? $i) ?></span>
+          <?php endforeach; ?>
+        <?php endif; ?>
+      </p>
+    </section>
 
-  <section class="summary-card">
-    <h2>Fasilitas</h2>
-    <ul>
-      <li>Modul digital</li>
-      <li>Sertifikat penyelesaian</li>
-      <li>Forum diskusi kelas</li>
-    </ul>
-  </section>
+    <section class="summary-card">
+      <h2>Fasilitas</h2>
+      <ul>
+        <li>Modul digital</li>
+        <li>Sertifikat penyelesaian</li>
+        <li>Forum diskusi kelas</li>
+      </ul>
+    </section>
 
-  <section class="summary-card">
-    <h2>Catatan</h2>
-    <p><?= e($note !== '' ? $note : 'Tidak ada catatan tambahan.') ?></p>
-  </section>
+    <section class="summary-card">
+      <h2>Catatan</h2>
+      <p><?= e($note !== '' ? $note : 'Tidak ada catatan tambahan.') ?></p>
+    </section>
+
+  </div>
 
   <div class="form-actions">
     <a class="btn-primary" href="registration.php">Daftar Lagi</a>
     <a class="btn-link" href="history.php">Lihat History Dummy</a>
     <a class="btn-link" href="index.php">Beranda</a>
   </div>
-  <?php endif; ?>
-  </div>
+<?php endif; ?>
 </main>
+
 <footer class="site-footer">
   <div class="container">
     <p>&copy; <?= date('Y') ?> KursusKu</p>

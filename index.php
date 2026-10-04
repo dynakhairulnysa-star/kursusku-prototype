@@ -13,217 +13,150 @@ $courses = [
 $siteName = "KursusKu";
 $tagline = "Belajar Teknologi, Bangun Masa Depan";
 $tahun = date("Y");
-
 ?>
-
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $siteName; ?></title>
-
-  <link
-    rel="stylesheet"
-    href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-
 <body>
-  <header class="header">
-
-    <div class="container">
-
-      <h1>
-        <?php echo $siteName; ?>
-      </h1>
-
-      <p>
-        <?php echo $tagline; ?>
-      </p>
-
+<header class="site-header">
+  <div class="container top-bar">
+    <div class="brand-wrap">
+      <div class="logo-badge">K</div>
+      <div class="brand-text">
+        <h1><?php echo $siteName; ?></h1>
+        <p>Pemrograman Web III</p>
+      </div>
     </div>
-
-  </header>
-
-  <nav class="navbar">
-  <div class="container">
-    <a href="index.php">Beranda</a>
-    <a href="index.php#kursus">Katalog</a>
-    <a href="registration.php">Daftar Kursus</a>
+    <span class="milestone-badge">Milestone 6</span>
   </div>
-</nav>
 
-  <main>
-    <section id="beranda" class="hero">
-
-      <div class="container">
-
-        <div class="hero-content">
-
-          <div>
-
-            <h2>
-              Selamat Datang di
-              <?php echo $siteName; ?>
-            </h2>
-
-            <p>
-              Platform belajar teknologi untuk
-              mahasiswa yang ingin meningkatkan
-              kemampuan pemrograman web.
-            </p>
-
-            <a
-              href="#kursus"
-              class="button">
-              Lihat Kursus
-            </a>
-
-            <a
-              href="fee-calculator.php"
-              class="button">Lihat Estimasi Biaya
-            </a>
-
-          </div>
-
-          <div>
-
-            <img
-              src="assets/img/image1.png"
-              alt="Mahasiswa sedang belajar pemrograman web"
-              class="hero-image">
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- ===== SECTION KATALOG — DIGANTI DENGAN TABEL DINAMIS ===== -->
-    <section id="kursus" class="section">
-
-      <div class="container">
-
-        <h2>Katalog Kursus</h2>
-
-        <table>
-          <thead>
-            <tr>
-              <th>Kode</th>
-              <th>Nama</th>
-              <th>Biaya</th>
-              <th>Mulai</th>
-              <th>Sisa</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php foreach ($courses as $course): ?>
-              <?php
-              $status = statusKursus($course['quota'], $course['registered']);
-              $statusClass = $status === 'Penuh' ? 'badge-full' : 'badge-available';
-              ?>
-              <tr>
-                <td><?= htmlspecialchars($course['code']) ?></td>
-                <td><?= htmlspecialchars(trim($course['name'])) ?></td>
-                <td><?= rupiah($course['fee']) ?></td>
-                <td><?= formatTanggal($course['start_date']) ?></td>
-                <td><?= sisaKursi($course['quota'], $course['registered']) ?></td>
-                <td><span class="<?= $statusClass ?>"><?= $status ?></span></td>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-
-      </div>
-
-    </section>
-    <!-- ===== AKHIR SECTION KATALOG ===== -->
-
-    <section id="tentang" class="section section-light">
-
-      <div class="container">
-
-        <h2>Tentang KursusKu</h2>
-
-        <p>
-          KursusKu merupakan prototype website
-          pembelajaran yang dikembangkan dalam
-          mata kuliah Pemrograman Web III.
-        </p>
-
-        <p>
-          Pada semester ini mahasiswa akan belajar
-          PHP, MySQL dan framework Laravel.
-        </p>
-
-        <a
-          href="https://laravel.com"
-          target="_blank"
-          rel="noopener">
-          Pelajari Laravel
-        </a>
-
-      </div>
-
-    </section>
-    <section class="section">
-
-      <div class="container">
-
-        <h2>Video Pembelajaran</h2>
-
-        <div class="video-placeholder">
-
-          <iframe width="342" height="607" src="https://www.youtube.com/embed/nQinn48Bk2g" title="Kenapa Laravel Masih Banyak Yang Pake" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-
-
-      </div>
-
-    </section>
-    <section id="kontak" class="section section-light">
-
-      <div class="container">
-
-        <h2>Kontak</h2>
-
-        <p>
-          Informasi lebih lanjut mengenai
-          program KursusKu dapat diperoleh
-          melalui halaman ini.
-        </p>
-
-      </div>
-
-    </section>
-  </main>
-
-  <footer class="footer">
-
+  <div class="nav-bar">
     <div class="container">
-
-      <p>
-
-        &copy;
-        <?php echo $tahun; ?>
-
-        <?php echo $siteName; ?>.
-
-        Pemrograman Web III.
-
-      </p>
-
+      <nav class="nav-links" aria-label="Navigasi utama">
+        <a href="index.php">Beranda</a>
+        <a href="index.php#tentang">Keunggulan</a>
+        <a href="index.php#kursus">Katalog</a>
+        <a href="registration.php">Cara Daftar</a>
+        <a href="index.php#kontak">Kontak</a>
+        <a href="test-matrix.php">Form P5</a>
+        <a href="registration.php">Daftar P6</a>
+        <a href="history.php">History</a>
+      </nav>
+      <a class="btn-estimasi" href="fee-calculator.php">Estimasi Biaya</a>
     </div>
+  </div>
+</header>
 
-  </footer>
+<main>
+  <section id="beranda" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div>
+          <h2>Selamat Datang di <?php echo $siteName; ?></h2>
+          <p>
+            Platform belajar teknologi untuk
+            mahasiswa yang ingin meningkatkan
+            kemampuan pemrograman web.
+          </p>
+          <a href="#kursus" class="button">Lihat Kursus</a>
+          <a href="fee-calculator.php" class="button">Lihat Estimasi Biaya</a>
+        </div>
+        <div>
+          <img src="assets/img/image1.png" alt="Mahasiswa belajar" class="hero-image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="kursus" class="section">
+    <div class="container">
+      <h2>Katalog Kursus</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Kode</th><th>Nama</th><th>Biaya</th><th>Mulai</th><th>Sisa</th><th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach ($courses as $course): ?>
+            <?php
+            $status = statusKursus($course['quota'], $course['registered']);
+            $statusClass = $status === 'Penuh' ? 'badge-full' : 'badge-available';
+            ?>
+            <tr>
+              <td><?= htmlspecialchars($course['code']) ?></td>
+              <td><?= htmlspecialchars(trim($course['name'])) ?></td>
+              <td><?= rupiah($course['fee']) ?></td>
+              <td><?= formatTanggal($course['start_date']) ?></td>
+              <td><?= sisaKursi($course['quota'], $course['registered']) ?></td>
+              <td><span class="<?= $statusClass ?>"><?= $status ?></span></td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="tentang" class="section section-light">
+    <div class="container">
+      <h2>Tentang KursusKu</h2>
+      <p>KursusKu merupakan prototype website pembelajaran yang dikembangkan dalam mata kuliah Pemrograman Web III.</p>
+      <p>Pada semester ini mahasiswa akan belajar PHP, MySQL dan framework Laravel.</p>
+      <a href="https://laravel.com" target="_blank" rel="noopener">Pelajari Laravel</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>Video Pembelajaran</h2>
+      <div class="video-placeholder">
+        <iframe width="342" height="607" src="https://www.youtube.com/embed/nQinn48Bk2g" title="Video Laravel" frameborder="0" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontak" class="section section-light">
+  <div class="container">
+    <h2>Kontak</h2>
+    <p style="text-align:center; margin-bottom: 2rem;">
+      Ada pertanyaan seputar kursus? Hubungi kami melalui:
+    </p>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <div class="contact-icon">📧</div>
+        <h3>Email</h3>
+        <p>info@kursusku.id</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📱</div>
+        <h3>WhatsApp</h3>
+        <p>0812-3456-7890</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">📍</div>
+        <h3>Alamat</h3>
+        <p>Kampus UIN, Gedung TI Lt. 3</p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon">🕐</div>
+        <h3>Jam Layanan</h3>
+        <p>Sen–Jum, 08.00–16.00</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <?= $tahun ?> <?= $siteName ?>. Pemrograman Web III.</p>
+  </div>
+</footer>
 </body>
-
 </html>
