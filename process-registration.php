@@ -10,8 +10,44 @@ $note = trim($_POST['note'] ?? '');
 $source = $_POST['source'] ?? '';
 $interestText = implode(', ', $interests);
 
+$learningMethod = $_POST['learning_method'] ?? '';
+$packageCount   = (int) ($_POST['package_count'] ?? 1);
+
+$courseMap = [
+    'web-dasar'           => ['label' => 'Web Dasar',           'fee' => 350000],
+    'php-dasar'           => ['label' => 'PHP Dasar',           'fee' => 450000],
+    'laravel-fundamental' => ['label' => 'Laravel Fundamental', 'fee' => 575000],
+];
+$participantMap = ['mahasiswa' => 'Mahasiswa', 'guru' => 'Guru', 'umum' => 'Umum'];
+$methodMap      = ['tatap-muka' => 'Tatap Muka', 'online' => 'Online', 'hybrid' => 'Hybrid'];
+$interestMap    = ['frontend' => 'Frontend', 'backend' => 'Backend', 'database' => 'Database', 'ui-ux' => 'UI/UX'];
+
+$courseLabel = $courseMap[$course]['label'] ?? '-';
+$fee         = $courseMap[$course]['fee']   ?? 0;
+
+$discountPercent = match ($participantType) {
+    'mahasiswa' => 20,
+    'guru'      => 15,
+    default     => 0,
+};
+$subtotal = $fee * max(1, $packageCount);
+$discount = (int) round($subtotal * $discountPercent / 100);
+$total    = $subtotal - $discount;
+
+$errors = [];
+if ($name === '')                              $errors[] = 'Nama wajib diisi.';
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Email tidak valid.';
+if ($phone === '')                             $errors[] = 'Nomor HP wajib diisi.';
+if ($studyProgram === '')                      $errors[] = 'Program studi wajib diisi.';
+if (!array_key_exists($course, $courseMap))    $errors[] = 'Pilih kursus.';
+if (!in_array($participantType, ['mahasiswa','guru','umum'], true)) $errors[] = 'Pilih tipe peserta.';
+if (!in_array($learningMethod, ['tatap-muka','online','hybrid'], true)) $errors[] = 'Pilih metode belajar.';
+
 function e($value): string {
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+}
+function rupiah($n) {
+    return 'Rp ' . number_format($n, 0, ',', '.');
 }
 ?>
 <!doctype html>
@@ -23,25 +59,111 @@ function e($value): string {
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.php">KursusKu</a>
+    <nav aria-label="Navigasi utama">
+      <a href="index.php">Beranda</a>
+      <a href="index.php#katalog">Katalog</a>
+      <a href="registration.php">Daftar</a>
+    </nav>
+  </div>
+</header>
 <main class="container result-page">
-  <section class="alert-success">
-    <h1>Pendaftaran Diterima untuk Diproses</h1>
-    <p>Periksa kembali data latihan berikut.</p>
-  </section>
-  <section class="summary-card">
-    <dl class="summary-list">
-      <dt>Nama</dt><dd><?= e($name) ?></dd>
-      <dt>Email</dt><dd><?= e($email) ?></dd>
-      <dt>Nomor HP</dt><dd><?= e($phone) ?></dd>
-      <dt>Program Studi</dt><dd><?= e($studyProgram) ?></dd>
-      <dt>Kursus</dt><dd><?= e($course) ?></dd>
-      <dt>Jenis Peserta</dt><dd><?= e($participantType) ?></dd>
-      <dt>Minat</dt><dd><?= e($interestText) ?></dd>
-      <dt>Catatan</dt><dd><?= e($note) ?></dd>
-      <dt>Sumber</dt><dd><?= e($source) ?></dd>
-    </dl>
+  <?php if ($errors): ?>
+  <section class="alert-error">
+    <h1>Pendaftaran Gagal Diproses</h1>
+    <p>Periksa kembali data berikut:</p>
+    <ul>
+      <?php foreach ($errors as $err): ?>
+        <li><?= e($err) ?></li>
+      <?php endforeach; ?>
+    </ul>
     <a class="btn-link" href="registration.php">Kembali ke Form</a>
   </section>
+<?php else: ?>
+  <p class="eyebrow">Milestone 6 · Ringkasan</p>
+  <h1>Pendaftaran Berhasil Diproses</h1>
+
+  <section class="summary-card">
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="info-label">Nama:</span>
+        <span class="info-value"><?= e($name) ?></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Email:</span>
+        <span class="info-value"><?= e($email) ?></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Kursus:</span>
+        <span class="info-value"><?= e($courseLabel) ?></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Tipe peserta:</span>
+        <span class="info-value"><?= e($participantMap[$participantType] ?? $participantType) ?></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Metode:</span>
+        <span class="info-value"><?= e($methodMap[$learningMethod] ?? $learningMethod) ?></span>
+      </div>
+      <div class="info-item">
+        <span class="info-label">Jumlah paket:</span>
+        <span class="info-value"><?= e($packageCount) ?></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="summary-card">
+    <h2>Rincian Biaya</h2>
+    <dl class="summary-list">
+      <dt>Biaya satuan</dt><dd><?= rupiah($fee) ?></dd>
+      <dt>Subtotal</dt><dd><?= rupiah($subtotal) ?></dd>
+      <dt>Diskon <?= e($discountPercent) ?>%</dt><dd>-<?= rupiah($discount) ?></dd>
+      <dt><strong>TOTAL AKHIR</strong></dt><dd><strong><?= rupiah($total) ?></strong></dd>
+    </dl>
+  </section>
+
+  <section class="summary-card">
+    <h2>Minat</h2>
+    <p>
+      <?php if (empty($interests)): ?>
+        <span style="background:#eef8f5; padding:.75rem 1rem; display:block; border-radius:8px; color:#475569;">
+          Belum memilih minat.
+        </span>
+      <?php else: ?>
+        <?php foreach ($interests as $i): ?>
+          <span class="tag"><?= e($interestMap[$i] ?? $i) ?></span>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </p>
+  </section>
+
+  <section class="summary-card">
+    <h2>Fasilitas</h2>
+    <ul>
+      <li>Modul digital</li>
+      <li>Sertifikat penyelesaian</li>
+      <li>Forum diskusi kelas</li>
+    </ul>
+  </section>
+
+  <section class="summary-card">
+    <h2>Catatan</h2>
+    <p><?= e($note !== '' ? $note : 'Tidak ada catatan tambahan.') ?></p>
+  </section>
+
+  <div class="form-actions">
+    <a class="btn-primary" href="registration.php">Daftar Lagi</a>
+    <a class="btn-link" href="history.php">Lihat History Dummy</a>
+    <a class="btn-link" href="index.php">Beranda</a>
+  </div>
+  <?php endif; ?>
 </main>
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <?= date('Y') ?> KursusKu</p>
+  </div>
+</footer>
 </body>
 </html>

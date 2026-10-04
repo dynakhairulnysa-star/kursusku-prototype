@@ -22,8 +22,18 @@ $total = $subtotal - $discount + $adminFee;
         .total{background:#eaf7f3;font-weight:bold}
         a{color:#0f766e}
     </style>
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.php">KursusKu</a>
+    <nav>
+      <a href="index.php">Beranda</a>
+      <a href="registration.php">Daftar</a>
+    </nav>
+  </div>
+</header>
 <main class="card">
     <h1>Kalkulator Estimasi Biaya</h1>
     <p>Kursus: <strong><?= $courseName ?></strong></p>
@@ -38,5 +48,10 @@ $total = $subtotal - $discount + $adminFee;
     </table>
     <p><a href="index.php">Kembali ke Beranda</a></p>
 </main>
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <?= date('Y') ?> KursusKu</p>
+  </div>
+</footer>
 </body>
 </html>

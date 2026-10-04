@@ -1,0 +1,28 @@
+TEST MATRIX - MILESTONE 6
+==========================
+
+Harga kursus:
+- Web Dasar           = Rp 350.000
+- PHP Dasar           = Rp 450.000
+- Laravel Fundamental = Rp 575.000
+
+Diskon:
+- Mahasiswa = 20%
+- Guru      = 15%
+- Umum      = 0%
+
+-------------------------------------------------------------------------------
+No | Skenario                       | Actual                      | Expected                    | Status
+---+--------------------------------+-----------------------------+-----------------------------+-------
+1  | Mahasiswa, Web Dasar, 1 paket  | Rp 280.000                  | Rp 280.000                  | PASS
+2  | Guru, PHP Dasar, 1 paket       | Rp 382.500                  | Rp 382.500                  | PASS
+3  | Umum, Laravel, 1 paket         | Rp 575.000                  | Rp 575.000                  | PASS
+4  | Mahasiswa, Web Dasar, 2 paket  | Rp 560.000                  | Rp 560.000                  | PASS
+5  | Nama kosong                    | Nama wajib diisi.           | Nama wajib diisi.           | PASS
+6  | Email tidak valid              | Email tidak valid.          | Email tidak valid.          | PASS
+7  | Minat kosong                   | Pilih minimal satu minat.   | Pilih minimal satu minat.   | PASS
+8  | 3 minat dipilih                | Frontend, Backend, Database | Frontend, Backend, Database | PASS
+9  | Metode hybrid                  | Hybrid                      | Hybrid                      | PASS
+10 | Metode online                  | Online                      | Online                      | PASS
+11 | Akses langsung process-reg     | Redirect ke form + error    | Validasi tampil             | PASS
+12 | Fasilitas & Rincian Biaya      | Dirender otomatis           | Dirender otomatis           | PASS

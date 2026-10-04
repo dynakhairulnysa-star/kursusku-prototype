@@ -25,7 +25,7 @@
   </section>
   <section class="form-card">
     <form action="process-registration.php" method="POST" class="registration-form">
-      <input type="hidden" name="source" value="week-05">
+      <input type="hidden" name="source" value="week-06">
       <div class="form-grid">
         <div class="form-group">
           <label for="name">Nama Lengkap</label>
@@ -45,24 +45,28 @@
         </div>
       </div>
 
+      <?php
+      $courses = [
+          'web-dasar'           => 'Web Dasar',
+          'php-dasar'           => 'PHP Dasar',
+          'laravel-fundamental' => 'Laravel Fundamental',
+      ];
+      ?>
       <div class="form-group">
         <label for="course">Kursus yang Dipilih</label>
         <select id="course" name="course" required>
           <option value="">-- Pilih kursus --</option>
-          <option value="web-dasar">Web Dasar</option>
-          <option value="php-dasar">PHP Dasar</option>
-          <option value="laravel-fundamental">Laravel Fundamental</option>
+          <?php foreach ($courses as $key => $label): ?>
+            <option value="<?= $key ?>"><?= htmlspecialchars($label) ?></option>
+          <?php endforeach; ?>
         </select>
       </div>
 
       <fieldset class="form-group">
         <legend>Jenis Peserta</legend>
-        <label class="choice">
-          <input type="radio" name="participant_type" value="mahasiswa" required> Mahasiswa
-        </label>
-        <label class="choice">
-          <input type="radio" name="participant_type" value="umum"> Umum
-        </label>
+        <label class="choice"><input type="radio" name="participant_type" value="mahasiswa" required> Mahasiswa</label>
+        <label class="choice"><input type="radio" name="participant_type" value="umum"> Umum</label>
+        <label class="choice"><input type="radio" name="participant_type" value="guru"> Guru</label>
       </fieldset>
 
       <fieldset class="form-group">
@@ -70,7 +74,28 @@
         <label class="choice"><input type="checkbox" name="interests[]" value="ui-ux"> UI/UX</label>
         <label class="choice"><input type="checkbox" name="interests[]" value="database"> Database</label>
         <label class="choice"><input type="checkbox" name="interests[]" value="backend"> Backend</label>
+        <label class="choice"><input type="checkbox" name="interests[]" value="frontend"> Frontend</label>
       </fieldset>
+
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="learning_method">Metode belajar</label>
+          <select id="learning_method" name="learning_method" required>
+            <option value="">-- Pilih metode --</option>
+            <option value="tatap-muka">Tatap Muka</option>
+            <option value="online">Online</option>
+            <option value="hybrid">Hybrid</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="package_count">Jumlah paket</label>
+          <select id="package_count" name="package_count" required>
+            <option value="1">1 paket</option>
+            <option value="2">2 paket</option>
+            <option value="3">3 paket</option>
+          </select>
+        </div>
+      </div>
 
       <div class="form-group">
         <label for="note">Catatan</label>
@@ -78,9 +103,27 @@
         <small class="help">Maksimal 300 karakter.</small>
       </div>
 
-      <button class="btn-primary" type="submit">Kirim Pendaftaran</button>
+      <div class="form-actions">
+        <button class="btn-primary" type="submit" name="action" value="proses">Proses Pendaftaran</button>
+        <button class="btn-primary" type="submit" name="action" value="history">History Dummy</button>
+        <button class="btn-primary" type="submit" name="action" value="loop">Loop Lab</button>
+      </div>
     </form>
+
+    <div class="fasilitas-box">
+      <h3>Fasilitas</h3>
+      <ul>
+        <li>Modul digital</li>
+        <li>Sertifikat penyelesaian</li>
+        <li>Forum diskusi kelas</li>
+      </ul>
+    </div>
   </section>
 </main>
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <?= date('Y') ?> KursusKu</p>
+  </div>
+</footer>
 </body>
 </html>

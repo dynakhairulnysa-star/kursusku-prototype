@@ -1,10 +1,18 @@
+/* =========================================================
+   KURSUSKU - STYLESHEET FINAL
+   ========================================================= */
+
+/* ===== RESET ===== */
 * { box-sizing: border-box; }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
   margin: 0;
-  color: #16332c;
+  color: #14231f;
   background: #f5f7f6;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 .container {
@@ -13,58 +21,43 @@ body {
   padding: 0 20px;
 }
 
+/* ===== HEADER LAMA (.header) ===== */
 .header {
-  background: #5d0785;
+  background: #0f766e;
   color: white;
   padding: 32px 0;
   text-align: center;
 }
-
 .header h1 { margin: 0; font-size: 32px; }
 .header p { margin: 8px 0 0; opacity: 0.9; }
 
 .navbar {
-  background: #c768c4;
+  background: #115e56;
   padding: 12px 0;
 }
-
 .navbar a {
   color: white;
   margin-right: 20px;
   text-decoration: none;
   font-weight: 600;
 }
-
 .navbar a:hover { text-decoration: underline; }
 
-.section {
-  padding: 48px 0;
-}
-
-.section-light {
-  background: white;
-}
-
-.hero {
-  background: white;
-  padding: 48px 0;
-}
-
+/* ===== SECTION / HERO ===== */
+.section { padding: 48px 0; }
+.section-light { background: white; }
+.hero { background: white; padding: 48px 0; }
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
   align-items: center;
 }
-
-.hero-image {
-  width: 100%;
-  border-radius: 12px;
-}
+.hero-image { width: 100%; border-radius: 12px; }
 
 .button {
   display: inline-block;
-  background: #5d0785;
+  background: #0f766e;
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -72,82 +65,63 @@ body {
   font-weight: 600;
   margin-top: 12px;
 }
+.button:hover { background: #115e56; }
 
-.button:hover { background: #5d0785; }
-
+/* ===== COURSE CARD ===== */
 .course-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 20px;
   margin-top: 20px;
 }
-
 .course-card {
   background: white;
   border: 1px solid #e0e5e3;
   border-radius: 12px;
   padding: 20px;
 }
+.course-card h3 { margin-top: 0; color: #0f766e; }
+.video-placeholder { text-align: center; margin-top: 20px; }
 
-.course-card h3 { margin-top: 0; color: #5d0785; }
-
-.video-placeholder {
-  text-align: center;
-  margin-top: 20px;
-}
-
+/* ===== FOOTER LAMA (.footer) ===== */
 .footer {
-  background: #5d0785;
+  background: #0f766e;
   color: white;
   padding: 24px 0;
   text-align: center;
   margin-top: 40px;
 }
 
-@media (max-width: 700px) {
-  .hero-content { grid-template-columns: 1fr; }
-}
-
-/* ===== CSS UNTUK TABEL KATALOG ===== */
+/* ===== TABEL ===== */
 table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 16px;
   background: white;
 }
-
 th, td {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: left;
 }
-
 th {
-  background: #5d0785;
+  background: #0f766e;
   color: white;
   font-weight: 600;
 }
 
-/* ===== CSS UNTUK BADGE STATUS ===== */
+/* ===== BADGE ===== */
 .badge-available, .badge-full {
   display: inline-block;
-  padding: 4px 8px;
+  padding: 4px 10px;
   border-radius: 999px;
   font-weight: 700;
   font-size: 12px;
 }
+.badge-available { background: #e7f8ef; color: #146c43; }
+.badge-full      { background: #fdeaea; color: #a61b1b; }
 
-.badge-available {
-  background: #e7f8ef;
-  color: #5d0785;
-}
-
-.badge-full {
-  background: #fdeaea;
-  color: #a61b1b;
-}
-
-/* ===== CSS GLOBAL KURSUSKU ===== */
+/* ===== VARIABEL ===== */
 :root {
   --brand: #0f766e;
   --brand-dark: #0b5f55;
@@ -158,44 +132,71 @@ th {
   --line: #d9e6e2;
 }
 
+/* ===== HEADER BARU (.site-header) ===== */
 .site-header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--line);
+  background: #115e59;
+  color: #fff;
+  padding: 12px 0;
 }
-
-.nav-wrap {
-  min-height: 64px;
+.site-header .nav-wrap {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
 }
-
-nav {
+.site-header .brand {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #fff;
+  text-decoration: none;
+}
+.site-header nav {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
-
-.brand {
-  font-weight: 800;
+.site-header nav a {
+  color: #fff;
+  margin-left: 1rem;
   text-decoration: none;
-  color: var(--brand-dark);
+  opacity: .9;
+  font-weight: 500;
+}
+.site-header nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
 }
 
+/* ===== FOOTER BARU (.site-footer) ===== */
+.site-footer {
+  background: #115e59;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 40px;
+  font-size: .9rem;
+}
+
+/* ===== PAGE INTRO ===== */
 .page-intro {
   max-width: 720px;
   margin: 2.5rem auto 1.25rem;
 }
-
-.eyebrow {
-  color: var(--brand);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: .05em;
+.page-intro p {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
 }
 
-/* ===== CSS FORM ===== */
+.eyebrow {
+  color: #0f766e;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .85rem;
+}
+
+/* ===== FORM CARD & SUMMARY CARD ===== */
 .form-card, .summary-card {
   max-width: 760px;
   margin: 0 auto 2rem;
@@ -210,7 +211,6 @@ nav {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
-
 .form-group { margin-bottom: 1rem; }
 
 label, legend {
@@ -232,7 +232,6 @@ textarea {
   border-radius: .65rem;
   background: #fff;
 }
-
 input:focus, select:focus, textarea:focus {
   outline: 3px solid rgba(15, 118, 110, .18);
   border-color: var(--brand);
@@ -248,6 +247,7 @@ input:focus, select:focus, textarea:focus {
 
 .help { color: var(--muted); }
 
+/* ===== TOMBOL ===== */
 .btn-primary, .btn-link {
   display: inline-block;
   border: 0;
@@ -257,30 +257,177 @@ input:focus, select:focus, textarea:focus {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
+  font-weight: 700;
+}
+.btn-link {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: #334155;
+}
+.btn-link:hover { background: #eef8f5; }
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1rem;
 }
 
+/* ===== ALERT ===== */
 .alert-success {
   max-width: 760px;
   margin: 2rem auto 1rem;
   padding: 1.2rem;
   background: #eaf8f1;
   border-left: 4px solid #17824f;
+  border-radius: .5rem;
+}
+.alert-error {
+  max-width: 760px;
+  margin: 2rem auto 1rem;
+  padding: 1.2rem;
+  background: #fef2f2;
+  border-left: 4px solid #b91c1c;
+  border-radius: .5rem;
+  color: #7f1d1d;
 }
 
+/* =========================================================
+   RINGKASAN (process-registration)
+   ========================================================= */
+
+/* Info grid 2 kolom */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.info-item {
+  background: #f1f5f9;
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+}
+.info-label {
+  display: block;
+  font-weight: 700;
+  color: #334155;
+  font-size: .95rem;
+  margin-bottom: .35rem;
+}
+.info-value {
+  display: block;
+  color: #14231f;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* Rincian Biaya */
 .summary-list {
   display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: .65rem 1rem;
+  grid-template-columns: 1fr auto;
+  gap: 0;
+  margin-top: .5rem;
+}
+.summary-list dt,
+.summary-list dd {
+  font-size: 1rem;
+  padding: .75rem .5rem;
+  border-bottom: 1px solid #f1f5f9;
+  margin: 0;
+}
+.summary-list dt {
+  font-weight: 600;
+  color: #334155;
+}
+.summary-list dd {
+  font-weight: 700;
+  color: #14231f;
+  text-align: right;
+}
+.summary-list dt:last-of-type,
+.summary-list dd:last-of-type {
+  background: #e7f8ef;
+  border-radius: 0 0 8px 8px;
+  border-bottom: 0;
+  font-weight: 800;
+  color: #0f766e;
+  font-size: 1.1rem;
+  padding: 1rem .75rem;
 }
 
-.summary-list dt { font-weight: 700; }
-.summary-list dd { margin: 0; }
+/* Tag Minat */
+.tag {
+  display: inline-block;
+  padding: .5rem 1rem;
+  margin: 0 .5rem .5rem 0;
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 999px;
+  font-size: .95rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
 
-/* ===== RESPONSIVE ===== */
+/* Judul & teks di summary */
+.summary-card h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #0f4c46;
+  margin: 0 0 1rem;
+}
+.summary-card ul {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #334155;
+  padding-left: 1.25rem;
+  margin: .5rem 0;
+}
+.summary-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #1e293b;
+}
+
+h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #0f4c46;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   FASILITAS BOX (di registration.php)
+   ========================================================= */
+.fasilitas-box {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #e2e8f0;
+}
+.fasilitas-box h3 {
+  margin: 0 0 .5rem;
+  color: #115e59;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+.fasilitas-box ul {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #475569;
+}
+.fasilitas-box li { margin-bottom: .25rem; }
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 700px) {
+  .hero-content { grid-template-columns: 1fr; }
+}
 @media (max-width: 640px) {
-  .nav-wrap { align-items: flex-start; padding-block: .8rem; }
-  nav { gap: .65rem; }
+  .site-header .nav-wrap { align-items: flex-start; padding-block: .8rem; }
+  .site-header nav { gap: .65rem; }
   .form-grid { grid-template-columns: 1fr; }
   .form-card, .summary-card { padding: 1rem; }
-  .summary-list { grid-template-columns: 1fr; }
+  .info-grid { grid-template-columns: 1fr; }
+  .summary-list { grid-template-columns: 1fr auto; }
 }
