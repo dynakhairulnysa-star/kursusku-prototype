@@ -1,19 +1,50 @@
 <?php
-require_once __DIR__ . '/helpers.php';
 
-$tests = [
-    ['Rupiah', rupiah(250000), 'Rp 250.000'],
-    ['Penuh', statusKursus(25, 25), 'Penuh'],
-    ['Tersedia', statusKursus(30, 29), 'Tersedia'],
-    ['Sisa kosong', sisaKursi(20, 0), 20],
-    ['Sisa penuh', sisaKursi(25, 25), 0],
-    ['Tanggal', formatTanggal('2026-09-15'), '15-09-2026'],
-];
+require_once 'helpers.php';
 
-echo "<h2>Test Functions</h2>";
-foreach ($tests as [$name, $actual, $expected]) {
-    $passed = $actual == $expected;
-    $color = $passed ? 'green' : 'red';
-    echo "<p style='color:$color'>$name : " . ($passed ? 'PASS' : 'FAIL') . " | actual=$actual | expected=$expected</p>";
+function test($nama, $hasil)
+{
+    echo $hasil
+        ? "PASS - $nama<br>"
+        : "FAIL - $nama<br>";
 }
+
+echo "<h1>Test Functions</h1>";
+
+/* Test 1: rupiah() */
+test(
+    "rupiah()",
+    rupiah(150000) === "Rp 150.000"
+);
+
+/* Test 2: statusKursus() - Penuh */
+test(
+    "statusKursus() Penuh",
+    statusKursus(20, 20) === "Penuh"
+);
+
+/* Test 3: statusKursus() - Tersedia */
+test(
+    "statusKursus() Tersedia",
+    statusKursus(20, 15) === "Tersedia"
+);
+
+/* Test 4: sisaKursi() - masih tersedia */
+test(
+    "sisaKursi()",
+    sisaKursi(20, 15) === 5
+);
+
+/* Test 5: sisaKursi() - sudah penuh */
+test(
+    "sisaKursi() ketika penuh",
+    sisaKursi(20, 20) === 0
+);
+
+/* Test 6: formatTanggal() */
+test(
+    "formatTanggal()",
+    formatTanggal("2026-09-22") === "22-09-2026"
+);
+
 ?>

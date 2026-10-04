@@ -26,3 +26,24 @@ No | Skenario                       | Actual                      | Expected    
 10 | Metode online                  | Online                      | Online                      | PASS
 11 | Akses langsung process-reg     | Redirect ke form + error    | Validasi tampil             | PASS
 12 | Fasilitas & Rincian Biaya      | Dirender otomatis           | Dirender otomatis           | PASS
+
+================================================
+KESIMPULAN:
+
+1. Semua 12 skenario uji berhasil (PASS) tanpa error.
+
+2. Perhitungan biaya sudah benar:
+   - Diskon Mahasiswa 20%, Guru 15%, Umum 0%
+   - Subtotal = fee x jumlah paket
+   - Total akhir = subtotal - diskon
+
+3. Validasi form berjalan sesuai harapan:
+   - Nama, email, HP, prodi wajib diisi
+   - Email harus format valid
+   - Kursus & metode harus dipilih
+
+4. Minat tidak divalidasi (boleh kosong), tapi tampil pesan
+   "Belum memilih minat." di ringkasan.
+
+5. Tampilan ringkasan, rincian biaya, fasilitas, dan
+   rincian minat di-render otomatis dari array PHP.

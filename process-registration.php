@@ -56,9 +56,31 @@ function rupiah($n) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hasil Pendaftaran - KursusKu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <canvas id="tech-bg"></canvas>
+  <div class="tech-overlay"></div>
+  <div class="tech-binary">
+    <span style="top:15%; left:5%;">010101101001</span>
+    <span style="top:30%; left:12%;">SYSTEM // TI</span>
+    <span style="top:60%; left:8%;">110010110110</span>
+    <span style="top:75%; left:15%;">SYSTEM // TI</span>
+    <span style="top:25%; right:8%;">SYSTEM // TI</span>
+    <span style="top:55%; right:5%;">010101101001</span>
+    <span style="top:85%; right:12%;">010101101001</span>
+  </div>
+  <div class="tech-panel">
+    <div class="tech-panel-title">TI SYSTEM // ONLINE</div>
+    <div class="tech-bar"><span style="width:85%"></span></div>
+    <div class="tech-bar"><span style="width:62%"></span></div>
+    <div class="tech-bar"><span style="width:93%"></span></div>
+  </div>
+  <script src="assets/js/tech-bg.js"></script>
+
 <header class="site-header">
   <div class="container top-bar">
     <div class="brand-wrap">
@@ -70,7 +92,6 @@ function rupiah($n) {
     </div>
     <span class="milestone-badge">Milestone 6</span>
   </div>
-
   <div class="nav-bar">
     <div class="container">
       <nav class="nav-links" aria-label="Navigasi utama">
@@ -105,7 +126,6 @@ function rupiah($n) {
   <h1>Pendaftaran Berhasil Diproses</h1>
 
   <div class="result-wrapper">
-
     <section class="summary-card">
       <div class="info-grid">
         <div class="info-item">
@@ -149,7 +169,7 @@ function rupiah($n) {
       <h2>Minat</h2>
       <p>
         <?php if (empty($interests)): ?>
-          <span style="background:#eef8f5; padding:.75rem 1rem; display:block; border-radius:8px; color:#475569;">
+          <span style="background:rgba(20,184,166,.15); padding:.75rem 1rem; display:block; border-radius:8px; color:#cbd5e1;">
             Belum memilih minat.
           </span>
         <?php else: ?>
@@ -173,7 +193,6 @@ function rupiah($n) {
       <h2>Catatan</h2>
       <p><?= e($note !== '' ? $note : 'Tidak ada catatan tambahan.') ?></p>
     </section>
-
   </div>
 
   <div class="form-actions">

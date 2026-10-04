@@ -5,7 +5,6 @@ $history = [
     ['nama' => 'Syerin',    'kursus' => 'Laravel Fundamental', 'total' => 575000],
     ['nama' => 'Saputra',   'kursus' => 'Laravel Fundamental', 'total' => 1725000],
 ];
-
 function rupiah($n) {
     return 'Rp ' . number_format($n, 0, ',', '.');
 }
@@ -16,9 +15,31 @@ function rupiah($n) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>History Pendaftaran - KursusKu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <canvas id="tech-bg"></canvas>
+  <div class="tech-overlay"></div>
+  <div class="tech-binary">
+    <span style="top:15%; left:5%;">010101101001</span>
+    <span style="top:30%; left:12%;">SYSTEM // TI</span>
+    <span style="top:60%; left:8%;">110010110110</span>
+    <span style="top:75%; left:15%;">SYSTEM // TI</span>
+    <span style="top:25%; right:8%;">SYSTEM // TI</span>
+    <span style="top:55%; right:5%;">010101101001</span>
+    <span style="top:85%; right:12%;">010101101001</span>
+  </div>
+  <div class="tech-panel">
+    <div class="tech-panel-title">TI SYSTEM // ONLINE</div>
+    <div class="tech-bar"><span style="width:85%"></span></div>
+    <div class="tech-bar"><span style="width:62%"></span></div>
+    <div class="tech-bar"><span style="width:93%"></span></div>
+  </div>
+  <script src="assets/js/tech-bg.js"></script>
+
 <header class="site-header">
   <div class="container top-bar">
     <div class="brand-wrap">
@@ -30,7 +51,6 @@ function rupiah($n) {
     </div>
     <span class="milestone-badge">Milestone 6</span>
   </div>
-
   <div class="nav-bar">
     <div class="container">
       <nav class="nav-links" aria-label="Navigasi utama">
@@ -76,7 +96,6 @@ function rupiah($n) {
         <?php endforeach; ?>
       </tbody>
     </table>
-
     <div class="form-actions" style="margin-top:1.25rem">
       <a class="btn-primary" href="registration.php">Daftar Kursus</a>
       <a class="btn-link" href="index.php">Beranda</a>

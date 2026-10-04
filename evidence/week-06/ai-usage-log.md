@@ -11,3 +11,26 @@
 | Badge minat | Pakai `<span class="tag">` + CSS `border-radius: 999px` | Diterima | Minat tampil sebagai badge hijau kapital |
 | History dummy | Loop array pakai `foreach` (bukan hardcode `<tr>`) | Diterima | 4 baris data tampil otomatis, tinggal ubah array untuk ubah data |
 | Tampilan warna tidak konsisten | Override `.header`, `.navbar`, `.button` jadi hijau | Diterima | Semua halaman pakai warna hijau yang sama |
+
+---
+
+## Kesimpulan
+
+Pada praktikum Milestone 6, saya menggunakan AI untuk membantu:
+
+1. Memahami konsep validasi form PHP
+2. Debugging saat submit form
+3. Merapikan tampilan CSS agar konsisten
+
+AI membantu mempercepat pengerjaan, tapi saya tetap perlu:
+
+- Memahami konsep dasar (validasi, loop, `match()`)
+- Debug sendiri saat ada error
+- Menyesuaikan tampilan sesuai kebutuhan
+
+**Yang saya kerjakan sendiri:**
+
+- Menyalin dan menyesuaikan kode
+- Menguji semua skenario (test matrix)
+- Screenshot evidence
+- Push ke GitHub
