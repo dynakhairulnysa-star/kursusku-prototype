@@ -67,7 +67,7 @@
   </section>
   <section class="form-card">
     <form action="process-registration.php" method="POST" class="registration-form">
-      <input type="hidden" name="source" value="week-06">
+      <input type="hidden" name="source" value="week-05">
       <div class="form-grid">
         <div class="form-group">
           <label for="name">Nama Lengkap</label>
