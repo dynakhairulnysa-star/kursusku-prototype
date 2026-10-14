@@ -59,6 +59,7 @@ $total = $subtotal - $discount + $adminFee;
         <a href="index.php#kursus">Katalog</a>
         <a href="index.php#tentang">Keunggulan</a>
         <a href="registration.php">Cara Daftar</a>
+        <a href="index.php#media">Media</a>
         <a href="index.php#kontak">Kontak</a>
         <a href="test-matrix.php">Form P5</a>
         <a href="registration.php">Daftar P6</a>

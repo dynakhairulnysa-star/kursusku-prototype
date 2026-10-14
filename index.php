@@ -20,13 +20,13 @@ $tahun = date("Y");
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?php echo $siteName; ?></title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <canvas id="tech-bg"></canvas>
+  <canvas id="tech-bg"></canvas>
   <div class="tech-overlay"></div>
   <div class="tech-binary">
     <span style="top:15%; left:5%;">010101101001</span>
@@ -44,6 +44,7 @@ $tahun = date("Y");
     <div class="tech-bar"><span style="width:93%"></span></div>
   </div>
   <script src="assets/js/tech-bg.js"></script>
+
 <header class="site-header">
   <div class="container top-bar">
     <div class="brand-wrap">
@@ -63,6 +64,7 @@ $tahun = date("Y");
         <a href="index.php#tentang">Keunggulan</a>
         <a href="index.php#kursus">Katalog</a>
         <a href="registration.php">Cara Daftar</a>
+        <a href="index.php#media">Media</a>
         <a href="index.php#kontak">Kontak</a>
         <a href="test-matrix.php">Form P5</a>
         <a href="registration.php">Daftar P6</a>
@@ -88,7 +90,7 @@ $tahun = date("Y");
           <a href="fee-calculator.php" class="button">Lihat Estimasi Biaya</a>
         </div>
         <div>
-        <img src="assets/images/Revisi-Hero-kursus.png" alt="Programmer di ruang server" class="hero-image">
+          <img src="assets/images/Revisi-Hero-kursus.png" alt="Programmer di ruang server" class="hero-image">
         </div>
       </div>
     </div>
@@ -132,7 +134,7 @@ $tahun = date("Y");
     </div>
   </section>
 
-  <section class="section">
+  <section id="media" class="section">
     <div class="container">
       <h2>Video Pembelajaran</h2>
       <div class="video-placeholder">
@@ -142,36 +144,36 @@ $tahun = date("Y");
   </section>
 
   <section id="kontak" class="section section-light">
-  <div class="container">
-    <h2>Kontak</h2>
-    <p style="text-align:center; margin-bottom: 2rem;">
-      Ada pertanyaan seputar kursus? Hubungi kami melalui:
-    </p>
+    <div class="container">
+      <h2>Kontak</h2>
+      <p style="text-align:center; margin-bottom: 2rem;">
+        Ada pertanyaan seputar kursus? Hubungi kami melalui:
+      </p>
 
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-icon">📧</div>
-        <h3>Email</h3>
-        <p>info@kursusku.id</p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">📱</div>
-        <h3>WhatsApp</h3>
-        <p>0812-3456-7890</p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">📍</div>
-        <h3>Alamat</h3>
-        <p>Kampus UIN, Gedung TI Lt. 3</p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-icon">🕐</div>
-        <h3>Jam Layanan</h3>
-        <p>Sen–Jum, 08.00–16.00</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">📧</div>
+          <h3>Email</h3>
+          <p>info@kursusku.id</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📱</div>
+          <h3>WhatsApp</h3>
+          <p>0812-3456-7890</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <h3>Alamat</h3>
+          <p>Kampus UIN, Gedung TI Lt. 3</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">🕐</div>
+          <h3>Jam Layanan</h3>
+          <p>Sen–Jum, 08.00–16.00</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 </main>
 
 <footer class="site-footer">

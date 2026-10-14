@@ -43,10 +43,10 @@ if (!array_key_exists($course, $courseMap))    $errors[] = 'Pilih kursus.';
 if (!in_array($participantType, ['mahasiswa','guru','umum'], true)) $errors[] = 'Pilih tipe peserta.';
 if (!in_array($learningMethod, ['tatap-muka','online','hybrid'], true)) $errors[] = 'Pilih metode belajar.';
 
-function e($value): string {
-    return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
+function e(string $value): string {
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
-function rupiah($n) {
+function rupiah(int $n): string {
     return 'Rp ' . number_format($n, 0, ',', '.');
 }
 ?>
@@ -58,7 +58,7 @@ function rupiah($n) {
   <title>Hasil Pendaftaran - KursusKu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -99,6 +99,7 @@ function rupiah($n) {
         <a href="index.php#kursus">Katalog</a>
         <a href="index.php#tentang">Keunggulan</a>
         <a href="registration.php">Cara Daftar</a>
+        <a href="index.php#media">Media</a>
         <a href="index.php#kontak">Kontak</a>
         <a href="test-matrix.php">Form P5</a>
         <a href="registration.php">Daftar P6</a>

@@ -1,13 +1,13 @@
 <?php
+
+require_once __DIR__ . '/helpers.php';
+
 $history = [
     ['nama' => 'Dinakin',   'kursus' => 'PHP Dasar',           'total' => 360000],
     ['nama' => 'Saraswati', 'kursus' => 'Web Dasar',           'total' => 9775000],
     ['nama' => 'Syerin',    'kursus' => 'Laravel Fundamental', 'total' => 575000],
     ['nama' => 'Saputra',   'kursus' => 'Laravel Fundamental', 'total' => 1725000],
 ];
-function rupiah($n) {
-    return 'Rp ' . number_format($n, 0, ',', '.');
-}
 ?>
 <!doctype html>
 <html lang="id">
@@ -58,6 +58,7 @@ function rupiah($n) {
         <a href="index.php#kursus">Katalog</a>
         <a href="index.php#tentang">Keunggulan</a>
         <a href="registration.php">Cara Daftar</a>
+        <a href="index.php#media">Media</a>
         <a href="index.php#kontak">Kontak</a>
         <a href="test-matrix.php">Form P5</a>
         <a href="registration.php">Daftar P6</a>
@@ -91,7 +92,7 @@ function rupiah($n) {
             <td><?= $i + 1 ?></td>
             <td><?= htmlspecialchars($row['nama']) ?></td>
             <td><?= htmlspecialchars($row['kursus']) ?></td>
-            <td><?= rupiah($row['total']) ?></td>
+            <td><?= rupiah((int) $row['total']) ?></td>
           </tr>
         <?php endforeach; ?>
       </tbody>
